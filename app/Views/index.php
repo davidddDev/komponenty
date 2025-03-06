@@ -18,7 +18,8 @@
     .card-title {
         font-size: 18px;
         font-weight: bold;
-        margin-bottom: 10px;
+        text-align: center;
+        margin-top: 10px;
     }
     .card-body {
         padding: 20px;

@@ -43,12 +43,12 @@
 
 <div class="container">
     <div class="row">
-        <h1 class="title">Typy komponentů</h1>
+        <h1 class="title" style="text-align: center";>Typy komponentů</h1>
         <?php foreach ($typKomponents as $typKomponent) : ?>
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="card">
                     <h2 class="card-title"><?= $typKomponent->typKomponent ?></h2>
-                    <a href="<?= base_url('typ-komponent/' . $typKomponent->idKomponent) ?>" class="btn btn-primary">Zobrazit komponenty</a>
+                    <a href="<?= base_url('typ-komponent/' . $typKomponent->url) ?>" class="btn btn-primary">Zobrazit komponenty</a>
                 </div>
             </div>
         <?php endforeach; ?>

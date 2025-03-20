@@ -2,9 +2,9 @@
 <?= $this->section('content') ?>
 
 <style>
-    .image-small {
-        width: 800px;
-        height: 600px;
+    .image {
+    max-width: 50%;
+    max-height: 50%;
     }
     .breadcrumb {
         padding: 10px;
@@ -19,22 +19,27 @@
     text-decoration: none;
     color: #337ab7;
     }
+    .house-icon {
+    font-size: 24px;
+    }
+    .velky-drobecek {
+        font-size: 24px;
+    }
 </style>
 
-<div class="breadcrumb">
-    <a href="<?= base_url('index') ?>" class="breadcrumb-link">Domů</a> /
-    <a href="<?= $typKomponentUrl ?>" class="breadcrumb-link"><?= $komponent->typKomponent->typKomponent ?></a>
+<div class="breadcrumb"> 
+    <a href="<?= base_url('index')  // drobecky ?>" class="breadcrumb-link house-icon">&#x1F3E0;/</a>
+    <a href="<?= $typKomponentUrl ?>" class="breadcrumb-link velky-drobecek"><?= $komponent->typKomponent->typKomponent ?></a>
 </div>
 
 <div class="container">
     <div class="row">
         <h1><?= $komponent->nazev ?></h1>
-        <img src="<?= base_url('komponenty/' . $komponent->pic) ?>" alt="<?= $komponent->nazev ?>" class="image-small">
-        <p>ID: <?= $komponent->id ?></p>
-        <p>ID Výrobce: <?= $komponent->vyrobce_id ?></p>
-
-        <p>Link na Alzu: <a href="<?= $komponent->odkaz ?>"><?= $komponent->odkaz ?></a></p>
-        <p>Výrobce: <?= $komponent->vyrobce->vyrobce ?></p>
+        <h3>Výrobce: <?= $komponent->vyrobce->vyrobce ?></h3>
+        <h6>ID: <?= $komponent->id ?></h6>
+        <h6>ID Výrobce: <?= $komponent->vyrobce_id ?></h6>
+        <h6>Link na Alzu: <a href="<?= $komponent->odkaz ?>"><?= $komponent->odkaz ?></a></h6>
+        <img src="<?= base_url('komponenty/' . $komponent->pic) ?>" alt="<?= $komponent->nazev ?>" class="image">
     </div>
 </div>
 

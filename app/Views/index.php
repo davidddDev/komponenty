@@ -55,4 +55,6 @@
     </div>
 </div>
 
+<?= anchor(base_url('taby'), 'Taby', 'class="btn btn-primary"') ?>
+
 <?= $this->endSection() ?>

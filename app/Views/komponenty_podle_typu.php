@@ -45,7 +45,7 @@
     <div class="row">
         <h1 class="title" style="text-align: center;">Typy komponentů: <?= $typKomponent->typKomponent ?></h1>
         <?php foreach ($komponents as $komponent) : ?>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="card">
                     <h2 class="card-title"><?= $komponent->nazev ?></h2>
                     <a href="<?= site_url('komponent/' . $komponent->id) ?>" class="btn btn-primary">Detail</a>

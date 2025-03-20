@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\TypKomponent;
 use App\Models\Komponent;
 use App\Models\Vyrobce;
+use Config\KomponentConfig;
 use Config\Pager;
 
 class Main extends BaseController
@@ -30,7 +31,8 @@ class Main extends BaseController
     public function komponenty_podle_typu($url)
     {
     $typKomponent = $this->typKomponentModel->where('url', $url)->first();
-    $perPage = config('Komponent.perPage');
+    $config = new KomponentConfig();
+    $perPage = $config->perPage;
     $komponents = $this->komponentModel->where('typKomponent_id', $typKomponent->idKomponent)->paginate($perPage);
     $pager = $this->komponentModel->pager;
     $data = [
@@ -51,9 +53,16 @@ public function komponent_detail($idKomponent)
     $komponent->typKomponent = $typKomponent;
     $data = [
         'komponent' => $komponent,
-        'typKomponentUrl' => base_url('typ-komponent/' . $typKomponent->url),
-    ];
+        'typKomponentUrl' => base_url('typ-komponent/' . $typKomponent->url),]; // drobeckova navigace
 
     return view('komponent_detail', $data);
     }
+
+    public function taby()
+{
+    $typKomponents = $this->typKomponentModel->findAll();
+    $komponentModel = $this->komponentModel;
+    $data = ['typKomponents' => $typKomponents, 'komponentModel' => $komponentModel];
+    return view('taby', $data);
+}
 }

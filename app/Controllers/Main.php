@@ -6,7 +6,6 @@ use App\Models\TypKomponent;
 use App\Models\Komponent;
 use App\Models\Vyrobce;
 use Config\KomponentConfig;
-use Config\Pager;
 
 class Main extends BaseController
 {

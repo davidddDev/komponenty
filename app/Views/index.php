@@ -47,6 +47,7 @@
         <?php foreach ($typKomponents as $typKomponent) : ?>
             <div class="col-md-6">
                 <div class="card">
+                
                     <h2 class="card-title"><?= $typKomponent->typKomponent ?></h2>
                     <a href="<?= base_url('typ-komponent/' . $typKomponent->url) ?>" class="btn btn-primary">Zobrazit komponenty</a>
                 </div>
@@ -54,7 +55,10 @@
         <?php endforeach; ?>
     </div>
 </div>
+<div class="abytonebylousebe" style="margin: 20px;">
+    <?= anchor(base_url('taby'), 'Taby', 'class="btn btn-primary"') ?>  
+    <?= anchor(base_url(''), 'Přidat novou kategorii', 'class="btn btn-primary"') ?>
+</div>
 
-<?= anchor(base_url('taby'), 'Taby', 'class="btn btn-primary"') ?>
 
 <?= $this->endSection() ?>

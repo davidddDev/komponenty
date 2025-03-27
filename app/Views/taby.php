@@ -4,14 +4,14 @@
 <style>
 body {font-family: Arial;}
 
-/* Style the tab */
+
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
 }
 
-/* Style the buttons inside the tab */
+
 .tab button {
   background-color: inherit;
   float: left;
@@ -23,12 +23,12 @@ body {font-family: Arial;}
   font-size: 17px;
 }
 
-/* Change background color of buttons on hover */
+
 .tab button:hover {
   background-color: #ddd;
 }
 
-/* Create an active/current tablink class */
+
 .tab button.active {
   background-color: #ccc;
 }
@@ -44,7 +44,7 @@ body {font-family: Arial;}
 <body>
 
 <h2>Taby</h2>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dolore doloribus id. Minus, maxime ipsum? Non atque ipsum amet, exercitationem officiis dignissimos similique cupiditate reiciendis eos animi porro, harum asperiores.</p>
+<p>Zobrazení tabů</p>
 
 <div class="tab">
     <?php foreach ($typKomponents as $typKomponent) : ?>

@@ -58,7 +58,7 @@ body {font-family: Arial;}
 
             <?php $komponents = $komponentModel->where('typKomponent_id', $typKomponent->idKomponent)->findAll(); ?>
             <?php foreach ($komponents as $komponent) : ?>
-                <p><a href=" <?= base_url('komponent/' . $komponent->id) ?>" class="btn btn-primary"><?= $komponent->nazev ?></a></p>
+                <p><a href=" <?= base_url('komponent/' . $komponent->id) ?>" class="btn btn-info"><?= $komponent->nazev ?></a></p>
             <?php endforeach; ?>
         </div>
 <?php endforeach; ?>

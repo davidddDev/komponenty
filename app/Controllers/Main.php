@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\TypKomponent;
 use App\Models\Komponent;
 use App\Models\Vyrobce;
+use App\Models\Kategorie;
 use Config\KomponentConfig;
 
 class Main extends BaseController
@@ -12,12 +13,14 @@ class Main extends BaseController
     private $typKomponentModel;
     private $komponentModel;
     private $vyrobceModel;
+    private $kategorieModel;
 
     public function __construct()
     {
         $this->komponentModel = new Komponent();
         $this->typKomponentModel = new TypKomponent();
         $this->vyrobceModel = new Vyrobce();
+        $this->kategorieModel = new Kategorie();
     }
 
     public function index()
@@ -58,10 +61,23 @@ public function komponent_detail($idKomponent)
     }
 
     public function taby()
-{
+    {
     $typKomponents = $this->typKomponentModel->findAll();
     $komponentModel = $this->komponentModel;
     $data = ['typKomponents' => $typKomponents, 'komponentModel' => $komponentModel];
     return view('taby', $data);
-}
+    }
+
+    public function nova_kategorie() {
+        if ($this->request->getMethod() === 'post') {
+            $data = [
+                'nazev' => $this->request->getPost('nazev'),
+            ];
+            $this->kategorieModel->insert($data);
+
+        return redirect()->to(base_url('index'))->with('success', 'Kategorie byla úspěšně přidána.');
+
+        }
+        return view('kategorie');
+    }
 }

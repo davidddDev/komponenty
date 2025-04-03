@@ -112,8 +112,23 @@ body {
   </div>
 </div>
 <div class="abytonebylousebe">
-  <?= anchor(base_url('taby'), 'Taby', 'class="btn btn-warning btn-lg"') ?>  
-  <?= anchor(base_url(''), 'Přidat novou kategorii', 'class="btn btn-success btn-lg"') ?>
+  <div class="row">
+    <div class="col-md-4">
+      <?= anchor(base_url('taby'), 'Taby', 'class="btn btn-warning btn-lg"') ?>
+    </div>
+    <div class="col-md-6">
+    <form method="post" action="<?= base_url("kategorie") ?>" class="form-horizontal">
+        <div class="form-group">
+          <div class="col-sm-8">
+            <input type="text" name="nazev" placeholder="Vložte název kategorie" class="form-control">
+          </div>
+          <div class="col-sm-12" style="padding-top: 10px;">
+            <button type="submit" class="btn btn-success btn-lg">Odeslat</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
 <?= $this->endSection() ?>

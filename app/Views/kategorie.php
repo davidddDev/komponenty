@@ -2,20 +2,14 @@
 <?= $this->section('content') ?>
 
 <div class="container">
-    <h2 class="title">Přidat novou kategorii pro: <?= $typKomponent->typKomponent ?></h2>
-    <form method="post" action="<?= base_url('typ-komponent/' . $typKomponent->url . '/kategorie') ?>" class="form-horizontal">
-        <div class="form-group">
-            <label for="nazev" class="col-sm-2 control-label">Název kategorie</label>
-            <div class="col-sm-8">
-                <input type="text" name="nazev" placeholder="Vložte název kategorie" class="form-control" required>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-12">
-                <button type="submit" class="btn btn-success btn-lg">Přidat kategorii</button>
-            </div>
-        </div>
-    </form>
+    <?php if ($typKomponent !== null) : ?>
+        <h2 class="title">Přidat novou kategorii pro: <?= $typKomponent->typKomponent ?></h2>
+        <form method="post" action="<?= base_url('typ-komponent/' . $typKomponent->url . '/kategorie') ?>" class="form-horizontal">
+            <!-- ... -->
+        </form>
+    <?php else : ?>
+        <h2 class="title">Typ komponentu nebyl nalezen.</h2>
+    <?php endif; ?>
 </div>
 
 <?= $this->endSection() ?>

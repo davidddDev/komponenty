@@ -68,16 +68,26 @@ public function komponent_detail($idKomponent)
     return view('taby', $data);
     }
 
-    public function nova_kategorie() {
-        if ($this->request->getMethod() === 'post') {
-            $data = [
-                'nazev' => $this->request->getPost('nazev'),
-            ];
-            $this->kategorieModel->insert($data);
-
-        return redirect()->to(base_url('index'))->with('success', 'Kategorie byla úspěšně přidána.');
-
+    public function nova_kategorie($url = null) {
+            $typKomponent = $this->typKomponentModel->where('url', $url)->first();
+    
+            if ($this->request->getMethod() === 'post') {
+                $nazev = $this->request->getPost('nazev');
+    
+                $data = [
+                    'nazev' => $nazev,
+                    'url' => strtolower(str_replace(' ', '-', $nazev)),
+                    'typKomponent_id' => $typKomponent->idKomponent,
+                ];
+    
+                if ($this->kategorieModel->save($data)) {
+                    return redirect()->to(base_url('typ-komponent/' . $typKomponent->url))
+                        ->with('success', 'Kategorie byla úspěšně přidána.');
+                }
+            }
+    
+            return view('kategorie', ['typKomponent' => $typKomponent]);
         }
-        return view('kategorie');
     }
-}
+
+

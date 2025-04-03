@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class Kategorie extends Model
 {
-    protected $table            = 'kategorie';
+    protected $table            = 'mt_kategorie';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
     protected $useSoftDeletes   = true;
     protected $protectFields    = false;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['nazev'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
